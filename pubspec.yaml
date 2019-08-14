@@ -1,0 +1,18 @@
+name: studies
+description: A sample command-line application.
+# version: 1.0.0
+# homepage: https://www.example.com
+# author: Lucas Simon <lucassrod@gmail.com>
+
+environment:
+  sdk: '>=2.4.0 <3.0.0'
+
+dependencies:
+  http: ^0.12.0+2
+
+dev_dependencies:
+  pedantic: ^1.7.0
+  test: ^1.5.0
+  mockito: ^4.1.0
+  coverage: ^0.13.2
+  lcov: ^5.4.0
