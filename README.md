@@ -22,6 +22,23 @@ Created from templates made available by Stagehand under a BSD-style
 
 - [Fluter with Mockito](https://www.woolha.com/tutorials/flutter-dart-unit-testing-with-mockito)
 
+- [FlutterCast - Programação reativa RX](https://www.youtube.com/watch?v=anAHd6Nlhvs)
+
+- [FlutterCast - Tudo que voce precisa saber sobre streams](https://www.youtube.com/watch?v=SdQGQqBgzXo)
+
+- [FlutterCast - transformando Streams](https://www.youtube.com/watch?v=YgpSQJCWJhw)
+
+- [FlutterCast - Bloc com injecao de dependencias](https://www.youtube.com/watch?v=G3gyhl9a5hw)
+
+- [FlutterCast - COmo usar bloc pattern](https://www.youtube.com/watch?v=UletIHoXMHA)
+
+- [FlutterCast - Recuperando o bloc em outras telas](https://www.youtube.com/watch?v=kAW4e9ThF1A)
+
+- [FlutterCast - Do widget ao bloc](https://www.youtube.com/watch?v=eOVRjmNNjn8)
+
+- [FlutterCast - All of bloc](https://www.youtube.com/watch?v=WROGcn6RqVE)
+
+- [Dio + Bloc + RxDart](https://youtu.be/2Fvk2mkovrg)
 
 
 
