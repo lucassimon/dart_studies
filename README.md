@@ -64,3 +64,4 @@ Created from templates made available by Stagehand under a BSD-style
 
 - https://blog.codemagic.io/full-stack-testing-of-flutter-apps-with-codemagic-ci-cd/
 
+- https://www.youtube.com/playlist?list=PLhXZp00uXBk5TSY6YOdmpzp1yG3QbFvrN
