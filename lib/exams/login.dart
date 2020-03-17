@@ -1,5 +1,9 @@
+import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:studies/repositories/customer_repository.dart';
+import 'package:studies/repositories/auth_repository.dart';
+import 'package:studies/storages/redis_storage.dart';
+import 'package:studies/storages/storages.dart';
 
 // Authenticate in API Rest Client that response a jwt token. This will use
 // interceptors to refresh tokens
@@ -8,36 +12,50 @@ void main() async {
 
   Map<String, String> signIn = await authenticate('test@gmail.com', 'teste123');
 
-  // save to LocalStorage or Shared Or ...
-  print(signIn);
+  // save to RedisStorage or LocalStorage or Shared Or ...
+  RedisStorage redisStorage = RedisStorage();
+  Storage storage = Storage(redisStorage);
+  await storage.save('my-application-token', signIn['token']);
+  await storage.save('my-application-refresh', signIn['refresh']);
 
-  print("request 1");
+  print("\nrequest 1");
   await fetchAll();
 
-  print("request 2");
-  await fetchAll();
+  Timer(Duration(minutes: 3), () async {
+    print("\nrequest 2");
+    await fetchAll();
+  });
+
+  Timer(Duration(minutes: 4), () async {
+    print("\nrequest 3");
+    await fetchAll();
+  });
+
+  Timer(Duration(minutes: 5), () async {
+    print("\nrequest 4");
+    await storage.clear();
+    await fetchAll();
+  });
+
 }
 
 Future<Map<String, String>> authenticate(String email, String password) async {
-  // AuthRepository repo = AuthRepository();
+  AuthRepository repo = AuthRepository();
 
-  // Response response = await repo.login(email, password);
-  // print("Token ${response.data['token']}");
-  // print("Refresh ${response.data['refresh']}");
+  Response response = await repo.login(email, password);
 
-  String token = "x.y.z";
-  String refresh = "x.y.z";
+  String token = "${response.data['token']}";
+  String refresh = "${response.data['refresh']}";
 
   Map<String, String> data = { 'token': token,'refresh': refresh };
   return data;
 }
 
-Future<List<dynamic>> fetchAll() async {
-  CustomerRepository repo = CustomerRepository();
+Future<Response> fetchAll() async {
+  RedisStorage redisStorage = RedisStorage();
+  CustomerRepository repo = CustomerRepository(redisStorage);
 
   Response response = await repo.fetchAll();
-  print(response);
-
-  return [];
+  print(response.data);
+  return response;
 }
-
